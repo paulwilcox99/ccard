@@ -16,13 +16,44 @@ Parses Wells Fargo and Bank of America PDF statements into a SQLite database and
   - Large transaction highlight (≥ $200)
   - CSV export of visible rows
 
-## Requirements
+## Install
 
-- Python 3 (stdlib only)
-- `pdftotext` from poppler-utils
+**1. Install system dependency**
 
 ```bash
 sudo apt install poppler-utils
+```
+
+**2. Create and activate a virtual environment**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+The script uses only stdlib, so no `pip install` step is needed.
+
+## Verify the install
+
+Run the test script against the included sample statements:
+
+```bash
+bash test_install.sh
+```
+
+Expected output:
+
+```
+=== Checking dependencies ===
+  PASS: python3 found
+  PASS: pdftotext found
+
+=== Running parser on test_statements/ ===
+  PASS: parse_statements.py exited cleanly
+  PASS: 152 transactions imported from test_statements/
+  PASS: index.html generated (45186 bytes)
+
+=== Results: 5 passed, 0 failed ===
 ```
 
 ## Usage

@@ -3,3 +3,4 @@ index.html
 statements/
 __pycache__/
 *.pyc
+.venv/
